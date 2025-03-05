@@ -1,23 +1,11 @@
 package m4rt1nn.joke.domain;
 
+//[{"type":"programming","setup":"Why did the developer quit his job?","punchline":"Because he didn't get arrays.","id":408}]
+
 public record JokeApiModel(
-        boolean error,
-        String category,
         String type,
         String setup,
-        String delivery,
-        Flags flags,
-        int id,
-        boolean safe,
-        String lang
+        String punchline,
+        int id
 ) {
-    public record Flags(
-            boolean nsfw,
-            boolean religious,
-            boolean racist,
-            boolean sexist,
-            boolean political,
-            boolean explicit
-    ) {
-    }
 }
