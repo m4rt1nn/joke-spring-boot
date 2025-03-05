@@ -15,17 +15,19 @@ public class JokeApiClient {
 
     @Autowired
     RestClient restClient;
+
     public JokeApiModel getJoke() {
         return Optional.ofNullable(restClient
-                .get()
-                .uri(builder -> builder
-                        .scheme("https")
-                        .host("official-joke-api.appspot.com")
-                        .pathSegment("jokes", "programming", "random")
-                        .build())
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .body(new ParameterizedTypeReference<List<JokeApiModel>>() {}))
+                        .get()
+                        .uri(builder -> builder
+                                .scheme("https")
+                                .host("official-joke-api.appspot.com")
+                                .pathSegment("jokes", "programming", "random")
+                                .build())
+                        .accept(MediaType.APPLICATION_JSON)
+                        .retrieve()
+                        .body(new ParameterizedTypeReference<List<JokeApiModel>>() {
+                        }))
                 .map(List::getFirst)
                 .orElse(new JokeApiModel("", "No joke found!", "Sorry :-(", 0));
     }

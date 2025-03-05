@@ -1,7 +1,7 @@
 package m4rt1nn.joke.domain;
 
 
-public record JokeModel(
+public record JokeResponse(
         String setup,
         String punchline
 ) {
